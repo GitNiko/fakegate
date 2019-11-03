@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: fakegateway
-        image: fakegateway
+        image: dockerniko/fakegateway
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
