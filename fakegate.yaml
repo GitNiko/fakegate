@@ -15,8 +15,15 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: fakegateway-v1
+  labels:
+    app: fakegateway
+    version: v1
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: fakegateway
+      version: v1
   template:
     metadata:
       labels:
@@ -28,4 +35,4 @@ spec:
         image: fakegateway
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort
+        - containerPort: 9080
